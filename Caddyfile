@@ -1,0 +1,7 @@
+0.0.0.0 {
+    log stdout
+    errors stdout
+
+    proxy /api localhost:4567
+    proxy / localhost:8000
+}
