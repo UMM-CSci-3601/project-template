@@ -1,0 +1,12 @@
+:80, :443 {
+    root /www/client
+
+    proxy /api server:4567
+
+    rewrite {
+      if {path} not_match ^/api
+      to {path} {path}/ /
+    }
+
+    gzip
+}

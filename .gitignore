@@ -371,3 +371,5 @@ gradle-app.setting
 **/build/
 
 # End of https://www.gitignore.io/api/node,java,linux,macos,gradle,windows,angular,code-java,sublimetext,jetbrains+all,visualstudiocode
+
+.caddy
