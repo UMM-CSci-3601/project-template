@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+
+  client:
+    build: ./client
+    volumes:
+      - ./.caddy:/root/.caddy  # to save certificates on disk
+    ports:
+      - "2015:2015"
+      - "80:80"
+      - "443:443"
