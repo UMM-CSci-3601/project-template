@@ -9,3 +9,7 @@ services:
       - "2015:2015"
       - "80:80"
       - "443:443"
+  server:
+    build: ./server
+    ports:
+      - "4567:4567"
