@@ -3,12 +3,14 @@
  */
 package umm3601;
 
+import static spark.Spark.*;
+
 public class Server {
     public String getGreeting() {
         return "Hello world.";
     }
 
     public static void main(String[] args) {
-        System.out.println(new Server().getGreeting());
+        get("/", (req, res) -> "Hello World");
     }
 }
