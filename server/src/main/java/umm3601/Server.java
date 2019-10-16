@@ -5,12 +5,37 @@ package umm3601;
 
 import static spark.Spark.*;
 
+import java.util.Arrays;
+
+import com.mongodb.MongoClientSettings;
+import com.mongodb.ServerAddress;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+
+import org.bson.BsonDocument;
+import org.bson.BsonString;
+import org.bson.Document;
+
 public class Server {
     public String getGreeting() {
         return "Hello world.";
     }
 
     public static void main(String[] args) {
+
+        String mongoAddr = System.getenv().get("MONGO_ADDR");
+        
+        MongoClient mongoClient = MongoClients.create(
+            MongoClientSettings.builder()
+                    .applyToClusterSettings(builder ->
+                            builder.hosts(Arrays.asList(new ServerAddress(mongoAddr != null ? mongoAddr : "localhost"))))
+                    .build());
+
+        MongoDatabase database = mongoClient.getDatabase("admin");
+
         get("/", (req, res) -> "Hello World from the server");
+        get("/mongo", (req, res) -> database.runCommand(new BsonDocument("buildinfo", new BsonString(""))).toJson());
     }
 }
