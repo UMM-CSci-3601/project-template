@@ -1,10 +1,11 @@
 localhost:2015, {$CADDY_HOST} {
     root /www/client
 
-    tls {$CADDY_TLS}
+    tls {$CADDY_TLS} # Set TLS settings, either "off" or an email address
 
-    proxy /api server:4567
+    proxy /api server:4567 # Proxy requests to /api to the server container
 
+    # Rewrite paths that don't start with /api to / for the Angular app
     rewrite {
       if {path} not_match ^/api
       to {path} {path}/ /
