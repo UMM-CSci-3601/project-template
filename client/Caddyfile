@@ -1,7 +1,9 @@
 :80, :443 {
     root /www/client
 
-    proxy /api server:4567
+    proxy /api server:4567 {
+      without /api
+    }
 
     rewrite {
       if {path} not_match ^/api
