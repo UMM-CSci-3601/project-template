@@ -1,4 +1,4 @@
-:80, :443 {
+localhost:2015, {$CADDY_HOST} {
     root /www/client
 
     tls {$CADDY_TLS}
