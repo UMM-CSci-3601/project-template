@@ -11,6 +11,6 @@ public class Server {
     }
 
     public static void main(String[] args) {
-        get("/", (req, res) -> "Hello World");
+        get("/", (req, res) -> "Hello World from the server");
     }
 }
