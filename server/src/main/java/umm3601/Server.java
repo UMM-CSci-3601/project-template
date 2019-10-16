@@ -35,7 +35,7 @@ public class Server {
 
         MongoDatabase database = mongoClient.getDatabase("admin");
 
-        get("/", (req, res) -> "Hello World from the server");
-        get("/mongo", (req, res) -> database.runCommand(new BsonDocument("buildinfo", new BsonString(""))).toJson());
+        get("/api", (req, res) -> "Hello World from the server");
+        get("/api/mongo", (req, res) -> database.runCommand(new BsonDocument("buildinfo", new BsonString(""))).toJson());
     }
 }
