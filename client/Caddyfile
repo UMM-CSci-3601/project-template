@@ -11,5 +11,21 @@ localhost:2015, {$CADDY_HOST} {
       to {path} {path}/ /
     }
 
+    expires {
+        match .js$ 1y
+        match .css$ 1y
+
+        match .png$ 1w
+        match .jpg$ 1w
+        match .gif$ 1w
+        match .svg$ 1w
+        match .ico$ 1w
+        match .ogg$ 1m
+        match .ttf$ 1m
+        match .otf$ 1m
+        match .woff$ 1m
+        match .eot$ 1m
+    }
+
     gzip
 }
