@@ -1,4 +1,4 @@
-localhost:2015, {$CADDY_HOST} {
+{$CADDY_HOST} { # Set host with environment variable
     root /www/client
 
     tls {$CADDY_TLS} # Set TLS settings, either "off" or an email address

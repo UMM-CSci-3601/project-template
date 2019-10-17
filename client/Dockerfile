@@ -14,3 +14,5 @@ FROM abiosoft/caddy
 COPY --from=ngbuild /tmp/client/dist/client /www/client
 # Copy the Caddyfile (configuration for Caddy)
 COPY ./Caddyfile /etc/Caddyfile
+# Set default Caddy host
+ENV CADDY_HOST localhost
