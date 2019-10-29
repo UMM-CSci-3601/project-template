@@ -25,3 +25,8 @@ services:
   mongo:
       image: mongo:3.4.23
       restart: always
+      volumes:
+          - mongo_data:/data/db
+
+volumes: 
+  mongo_data:
