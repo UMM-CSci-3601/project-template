@@ -6,7 +6,7 @@ services:
     volumes:
       - ./.caddy:/root/.caddy  # to save certificates on disk
     environment: 
-      CADDY_HOST: "https://example.sd.umm.app" # The domain/host to serve to
+      CADDY_HOST: "localhost" # The domain/host to serve to
       CADDY_TLS: "off" # Set to email address to enable TLS
       ACME_AGREE: "true" # Set to true to agree to the Let's Encrypt Subscriber Agreement (https://letsencrypt.org/documents/2017.11.15-LE-SA-v1.2.pdf)
     ports:
