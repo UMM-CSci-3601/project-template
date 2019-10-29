@@ -21,6 +21,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const MAT_MODULES: any[] = [
   MatToolbarModule,
@@ -49,7 +51,8 @@ const MAT_MODULES: any[] = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MAT_MODULES
+    MAT_MODULES,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
