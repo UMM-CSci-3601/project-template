@@ -1,1 +1,11 @@
-<p>about works!</p>
+<div fxLayout="column">
+  <h2 class="mat-display-1">About</h2>
+
+  <h2 class="mat-h2">Service Worker</h2>
+  <div>
+      Service Worker: {{this.updates.isEnabled ? "Enabled" : "Disabled" }}
+  </div>
+  <div fxLayout="row">
+      <button [disabled]="!this.updates.isEnabled" mat-stroked-button (click)="updates.checkForUpdate()">Check for Updates</button>
+  </div>
+</div>
