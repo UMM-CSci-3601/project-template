@@ -3,20 +3,18 @@
  */
 package umm3601;
 
-import static spark.Spark.*;
-
 import java.util.Arrays;
 
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 import org.bson.BsonDocument;
 import org.bson.BsonString;
-import org.bson.Document;
+
+import io.javalin.Javalin;
 
 public class Server {
     public String getGreeting() {
@@ -35,7 +33,9 @@ public class Server {
 
         MongoDatabase database = mongoClient.getDatabase("admin");
 
-        get("/api", (req, res) -> "Hello World from the server");
-        get("/api/mongo", (req, res) -> database.runCommand(new BsonDocument("buildinfo", new BsonString(""))).toJson());
+        Javalin app = Javalin.create().start(4567);
+        app.get("/api", ctx -> ctx.result("Hello World"));
+        app.get("/api/mongo", ctx -> ctx.result(database.runCommand(new BsonDocument("buildinfo", new BsonString(""))).toJson()));
+    
     }
 }
