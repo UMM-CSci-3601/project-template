@@ -21,32 +21,42 @@ repositories {
 }
 
 dependencies {
-    // This dependency is used by the application.
+    // Google core libraries for Java, various useful utilities
     implementation 'com.google.guava:guava:28.0-jre'
 
     //implementation 'com.google.code.gson:gson:2.8.6'
 
     //implementation 'com.sparkjava:spark-core:2.9.1'
 
+    // Javalin web framework
     implementation 'io.javalin:javalin:3.6.0'
 
+    // Jackson, a JSON library for Java
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+
+    implementation 'com.fasterxml.jackson.module:jackson-module-parameter-names:2.10.1'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.1'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.1'
 
+    // MongoDB integration for Jackson
+    implementation 'org.mongojack:mongojack:2.10.0'
+
+    // Swagger (OpenAPI) library and web resources
     implementation 'io.swagger.core.v3:swagger-core:2.0.8'
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.9'
     implementation 'io.github.classgraph:classgraph:4.8.34'
     implementation 'org.webjars:swagger-ui:3.23.8'
 
-
+    // MongoDB driver
     implementation 'org.mongodb:mongodb-driver-sync:3.11.1'
 
+    // Simple Logging Facade for Java
     implementation 'org.slf4j:slf4j-simple:1.7.26'
 
-    // Use JUnit Jupiter API for testing.
+    // JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
 
-    // Use JUnit Jupiter Engine for testing.
+    // JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
 }
 
@@ -62,6 +72,3 @@ test {
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
-
-task testServer(dependsOn: test)
-task runServer(dependsOn: run)
