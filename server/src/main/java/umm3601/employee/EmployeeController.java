@@ -95,11 +95,11 @@ public class EmployeeController implements CrudHandler {
     @Override
     public void getOne(Context ctx, String resourceId) {
         Employee employee;
-        //try {
+        try {
             employee = employeeCollection.find(eq("_id", new ObjectId(resourceId))).first();
-        //} catch(IllegalArgumentException e) {
-        //    throw new BadRequestResponse();
-        //}
+        } catch(IllegalArgumentException e) {
+            throw new BadRequestResponse();
+        }
         if (employee == null) throw new NotFoundResponse();
         else ctx.json(employee);
     }
