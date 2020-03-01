@@ -30,7 +30,7 @@ dependencies {
 
     implementation 'org.mongodb:mongodb-driver-sync:3.11.1'
 
-    implementation 'org.slf4j:slf4j-simple:1.7.26'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
 
     // Use JUnit Jupiter API for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
